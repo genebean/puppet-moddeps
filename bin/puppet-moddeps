@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require 'puppet-moddeps'
+# put executable code here
+# it should take a module as a param
+
