@@ -1,15 +1,20 @@
-#!/usr/bin/ruby
-require 'rubygems'
-require 'json'
+class Puppet-Moddeps
 
-json = File.read('/etc/puppet/modules/bootstrap_puppet/metadata.json')
-obj = JSON.parse(json)
+  default_module_path = '/etc/puppet/modules'
 
-obj["dependencies"].each do |dep|
-  @note = 'Installing dependency'
-  @depname = dep["name"].sub '/', '-'
-  @cmd = "puppet module install #{@depname}"
-  puts "#{@cmd}"
-  exec("#{@cmd}")
+  def installModuleDependencies(puppet_module)
+
+    puppet_module = puppet_module
+    metadata      = File.read("#{default_module_path}/#{puppet_module}/metadata.json")
+    data          = JSON.parse(metadata)
+
+    data['dependencies'].each do |dep|
+      note    = 'Installing dependency'
+      depname = dep["name"].sub '/', '-'
+      cmd     = "puppet module install #{depname}"
+      puts "#{cmd}"
+      exec("#{cmd}")
+    end
+  end
 end
 
