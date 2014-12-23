@@ -1,8 +1,14 @@
 require 'spec_helper'
 
-describe Moddeps do
-  it 'does stuff' do
-    pending # no code yet
+describe Puppet::Moddeps do
+
+  describe '.installModuleDependencies(puppet_module)' do
+
+    it 'installs the dependencies of a module' do
+      pending
+    end
+
   end
+
 end
 

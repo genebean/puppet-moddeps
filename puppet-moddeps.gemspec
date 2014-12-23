@@ -19,7 +19,8 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.7"
-  spec.add_development_dependency "guard"
+  spec.add_development_dependency "coveralls" # requires ruby >= 1.9.2
+  spec.add_development_dependency "guard"     # requires ruby >= 1.9.2
   spec.add_development_dependency "guard-rspec"
   spec.add_development_dependency "pry"
   spec.add_development_dependency "pry-remote"
@@ -28,6 +29,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "rspec-nc"
 
-  s.add_runtime_dependency "json"
+  spec.add_runtime_dependency "json"
 end
 

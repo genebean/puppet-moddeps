@@ -1,4 +1,7 @@
-guard 'rspec' do
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+guard 'rspec', cmd: 'bundle exec rspec' do
   # watch /lib/puppet files
   watch(%r{^lib/puppet/(.+).rb$}) do |m|
     "spec/#{m[1]}_spec.rb"

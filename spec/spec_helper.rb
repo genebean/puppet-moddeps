@@ -1,3 +1,6 @@
+require 'coveralls'
+Coveralls.wear!
+
 require 'pry'
-require 'Moddeps'
+require 'puppet/moddeps'
 
