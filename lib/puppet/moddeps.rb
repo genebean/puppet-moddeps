@@ -1,4 +1,5 @@
 require 'puppet/moddeps/version'
+require 'rubygems'
 require 'json'
 
 module Puppet
