@@ -9,7 +9,7 @@ describe Puppet::Moddeps do
     end
 
     it "installs ntp's only dependency: stdlib" do
-      expect(obj).to exist('/etc/puppet/modules/stdlib')
+      expect(File.directory?('/etc/puppet/modules/stdlib')).to be true
     end
 
   end

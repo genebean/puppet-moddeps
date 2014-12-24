@@ -1,7 +1,7 @@
 /.bundle/
 /.vagrant/
 /.yardoc
-/Gemfile.lock
+#/Gemfile.lock
 /_yardoc/
 /coverage/
 /doc/
@@ -17,3 +17,5 @@ mkmf.log
 # Files added as part of Vagrant setup
 /GitConfig
 
+/.DS_Store
+/vendor
