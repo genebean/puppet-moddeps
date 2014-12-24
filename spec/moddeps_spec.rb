@@ -2,10 +2,14 @@ require 'spec_helper'
 
 describe Puppet::Moddeps do
 
-  describe '.installModuleDependencies(puppet_module)' do
+  describe ".installModuleDependencies('ntp')" do
 
-    it 'installs the dependencies of a module' do
-      pending("This test isn't setup yet")
+    before do 
+      Puppet::Moddeps.installModuleDependencies('ntp')
+    end
+
+    it "installs ntp's only dependency: stdlib" do
+      expect(obj).to exist('/etc/puppet/modules/stdlib')
     end
 
   end
