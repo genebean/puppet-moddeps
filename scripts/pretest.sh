@@ -17,7 +17,9 @@ mkdir "$moddir"
 cat > "$moddir/metadata.json" <<EOF
 {
   "dependencies": [
-    { "name":"puppetlabs/stdlib","version_requirement":">= 3.2.0 < 5.0.0" }
+    {"name":"puppetlabs/stdlib","version_requirement":">= 2.4.0"},
+    {"name":"puppetlabs/concat","version_requirement":">= 1.1.1"},
+    {"name":"puppetlabs/firewall","version_requirement":">= 1.3.0"}
   ]
 }
 

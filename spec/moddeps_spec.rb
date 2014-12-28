@@ -23,31 +23,24 @@ describe Puppet::Moddeps do
       end
       
       it "should parse metadata.json" do
-        pending('create array of deps')
-      end
-      
-      it "should return an array of modules to install" do
-        pending('test that an array is returned, even if zero elements')
+        deps = Puppet::Moddeps.parseMetadata('fake_private_module')
+        expect(deps).to include('puppetlabs-stdlib', 'puppetlabs-concat', 'puppetlabs-firewall')
       end
       
       it "should install each module in provided array" do
-        if File.directory?('some module')
-          it "it should notify that module exists" do
-            pending('test that notification was printed')
-          end
-          
-        else
-          pending('test that module was installed')
-        end
-        
+        Puppet::Moddeps.installDeps('fake_private_module')
+        basedir = '/etc/puppet/modules'
+        expect("#{basedir}/stdlib").to exist
+        expect("#{basedir}/concat").to exist
+        expect("#{basedir}/firewall").to exist
       end
       
     end
     
   end # end describe '.installDeps(puppet_module)'
   
-  after(:all) do
-    %x(sudo rm -rf /etc/puppet/modules/*)
-  end
+  #after(:all) do
+  #  %x(sudo rm -rf /etc/puppet/modules/*)
+  #end
   
 end
