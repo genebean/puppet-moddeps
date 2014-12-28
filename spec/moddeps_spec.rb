@@ -50,6 +50,8 @@ describe Puppet::Moddeps do
     end
     
   end
-
+  
+  after(:all) do
+    %x(sudo rm -rf /etc/puppet/modules/*)
+  end
 end
-
