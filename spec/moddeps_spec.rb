@@ -18,13 +18,8 @@ describe Puppet::Moddeps do
     end
     
     context 'with one parameter' do
-      it 'should verify parameter is the name of an installed module' do
-        if false
-          it "should print usage and exit 1" do
-            pending('test for usage being printed')
-            pending('verify exit code is 1')
-          end
-        end
+      it 'should fail if the parameter is not an installed module' do
+        expect { Puppet::Moddeps.installDeps('fake_missing_module') }.to output(/Can\'t find fake_missing_module in.*/).to_stdout
       end
       
       it "should parse metadata.json" do
@@ -49,9 +44,10 @@ describe Puppet::Moddeps do
       
     end
     
-  end
+  end # end describe '.installDeps(puppet_module)'
   
   after(:all) do
     %x(sudo rm -rf /etc/puppet/modules/*)
   end
+  
 end
