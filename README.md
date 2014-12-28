@@ -1,5 +1,9 @@
 # Puppet::Moddeps
 
+#### Master: [![Build Status](https://travis-ci.org/genebean/puppet-moddeps.svg?branch=master)](https://travis-ci.org/genebean/puppet-moddeps) [![Coverage Status](https://img.shields.io/coveralls/genebean/puppet-moddeps.svg)](https://coveralls.io/r/genebean/puppet-moddeps?branch=master)
+
+#### Devlop: [![Build Status](https://travis-ci.org/genebean/puppet-moddeps.svg?branch=develop)](https://travis-ci.org/genebean/puppet-moddeps) [![Coverage Status](https://img.shields.io/coveralls/genebean/puppet-moddeps.svg)](https://coveralls.io/r/genebean/puppet-moddeps?branch=develop)
+
 TODO: Write a gem description
 
 ## Installation
