@@ -5,9 +5,9 @@ rvm:
   - 2.0.0
   - 2.1.1
 
-before_install:
-  - sudo scripts/ubuntu12.04-puppet.sh
-  - sudo scripts/pretest.sh
+install:
+  - sudo ./scripts/ubuntu12.04-puppet.sh
+  - sudo ./scripts/pretest.sh
 
 script: 'bundle exec rake'
 
