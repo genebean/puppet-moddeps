@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 
-require 'puppet-moddeps'
+require 'puppet/moddeps'
 
-PuppetModdeps.installModuleDependencies(ARGV[0])
-
+Puppet::Moddeps.installDeps(ARGV)

@@ -1,10 +1,22 @@
 language: ruby
 cache: bundler
 rvm:
-  - 1.8.7
   - 1.9.3
   - 2.0.0
   - 2.1.1
+
+before_install:
+  - wget https://apt.puppetlabs.com/puppetlabs-release-precise.deb
+  - sudo dpkg -i puppetlabs-release-precise.deb
+  - sudo apt-get update -qq
+  - sudo apt-get install -y puppet > /dev/null
+  - sudo chmod 777 /etc/puppet/modules
+  - moddir='/etc/puppet/modules/fake_private_module'
+  - mkdir "$moddir"
+  - echo '{"dependencies":[' >> "$moddir/metadata.json"
+  - echo '{"name":"puppetlabs/stdlib","version_requirement":">= 2.4.0"},' >> "$moddir/metadata.json"
+  - echo '{"name":"puppetlabs/concat","version_requirement":">= 1.1.1"},' >> "$moddir/metadata.json"
+  - echo '{"name":"puppetlabs/firewall","version_requirement":">= 1.3.0"}]}' >> "$moddir/metadata.json"
 
 script: 'bundle exec rake'
 
@@ -13,3 +25,6 @@ notifications:
     on_failure: change
     on_success: never
 
+addons:
+  code_climate:
+    repo_token: f73a867bdb9f7839256dbf50604585592eecf50f5fb0ea09c0783eb27649e6f2
