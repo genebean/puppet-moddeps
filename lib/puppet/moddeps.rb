@@ -5,44 +5,46 @@ require 'json'
 module Puppet
   module Moddeps
 
-    @@default_module_path = '/etc/puppet/modules'
+    module_function
 
-    def Moddeps.installDeps(*puppet_module)
+    @default_module_path = '/etc/puppet/modules'
 
-      if ( puppet_module.size >=1 and puppet_module[0].is_a?(Array) )
+    def install_deps(*puppet_module)
+
+      if puppet_module.size >=1 and puppet_module[0].is_a?(Array)
         args = puppet_module[0]
       else
         args = puppet_module
       end
 
-      if ( args.size == 1 )
-        if Moddeps.checkIfInstalled(args[0])
-          Moddeps.parseMetadata(args[0])
-          Moddeps.installModules
+      if args.size == 1
+        if check_if_installed(args[0])
+          parse_metadata(args[0])
+          install_modules
         else
-          puts "Can't find #{args[0]} in #{@@default_module_path}"
+          puts "Can't find #{args[0]} in #{@default_module_path}"
         end
       else
-        Moddeps.help
+        help
       end
     end
 
-    def Moddeps.help
+    def help
       puts 'Usage: puppet-moddeps module'
       puts '       Call puppet-moddeps with the name of one installed module'
     end
 
-    def Moddeps.checkIfInstalled(file)
-      File.directory?("#{@@default_module_path}/#{file}")
+    def check_if_installed(file)
+      File.directory?("#{@default_module_path}/#{file}")
     end
 
-    def Moddeps.parseMetadata(puppet_module)
-      metadata = File.read("#{@@default_module_path}/#{puppet_module}/metadata.json")
+    def parse_metadata(puppet_module)
+      metadata = File.read("#{@default_module_path}/#{puppet_module}/metadata.json")
       data     = JSON.parse(metadata)
-      @deps    = Moddeps.getDeps(data)
+      @deps    = Moddeps.get_deps(data)
     end
 
-    def Moddeps.getDeps(data)
+    def get_deps(data)
       dependencies = []
       data['dependencies'].each do |dep|
         depname = dep["name"].sub '/', '-'
@@ -52,10 +54,10 @@ module Puppet
       return dependencies
     end
 
-    def Moddeps.installModules
+    def install_modules
       if @deps.size > 0
         @deps.each do |dep|
-          if Moddeps.checkIfInstalled(dep)
+          if Moddeps.check_if_installed(dep)
             puts "#{dep} is already installed, skipping."
           else
             cmd = "/usr/bin/puppet module install #{dep}"
