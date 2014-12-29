@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    puppet-moddeps (0.3.3)
+    puppet-moddeps (1.0.0)
       json (~> 1.8, >= 1.8.1)
 
 GEM
