@@ -6,6 +6,7 @@ rvm:
   - 2.1.1
 
 before_install:
+  - sudo scripts/ubuntu12.04-puppet.sh
   - sudo scripts/pretest.sh
 
 script: 'bundle exec rake'
@@ -15,3 +16,6 @@ notifications:
     on_failure: change
     on_success: never
 
+addons:
+  code_climate:
+    repo_token: f73a867bdb9f7839256dbf50604585592eecf50f5fb0ea09c0783eb27649e6f2
