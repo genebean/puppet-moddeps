@@ -13,6 +13,7 @@
 *.o
 *.a
 mkmf.log
+*.gem
 
 # Files added as part of Vagrant setup
 /GitConfig
