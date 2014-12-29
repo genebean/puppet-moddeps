@@ -12,9 +12,17 @@
 [![Build Status][travis-img-develop]][travis-ci]
 [![Coverage Status][coveralls-img-develop]][coveralls-develop]
 
+## I work!
+
+**This gem DOES run successfully** using the system ruby on CentOS 6 (v1.8.7).
+The broken build status is a result of how [RVM][rvm] changes the environment
+and is something that is being investigated.
+
+## Description
+
 This gem will allow you to pull in all missing dependencies for a given Puppet
-module. This is targeted specifically at private modules that have a populated
-`metadata.json` file.
+module. This is targeted specifically at private modules or modules cloned from
+GitHub that have a populated `metadata.json` file.
 
 ## Installation
 
@@ -34,7 +42,10 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To put this gem to use just install it and run `puppet-moddeps some_module`,
+replacing `some_module` with the name of any module installed in
+`/etc/puppet/modules`. It will parse the module's `metadata.json` file pull down
+it's listed dependencies.
 
 ## Contributing
 
@@ -52,6 +63,16 @@ the version available in Red Hat / CentOS 6.
 6. Push to the branch (`git push origin my-new-feature`)
 7. Create a new Pull Request
 
+### Vagrant
+
+Development and testing can also be done utilizing the included `Vagrantfile`.
+To do so, install [Vagrant][vagrant] and [VirtualBox][vbox], fork and clone the
+project, cd into the project, and run `vagrant up dev` followed by `vagrant ssh
+dev`.  The setup process will take care of running `bundle install` for you. You
+can find the code symlinked into the vagrant user's home directory.
+
+### Tests
+
 Please try and write tests using Rspec's expect syntax for any code you add or change.
 Code must have tests before it will be merged.
 
@@ -66,6 +87,9 @@ Code must have tests before it will be merged.
 [gem-version]: http://badge.fury.io/rb/puppet-moddeps
 [gemnasium-img]: https://img.shields.io/gemnasium/genebean/puppet-moddeps.svg
 [gemnasium]: https://gemnasium.com/genebean/puppet-moddeps
+[rvm]: http://rvm.io
 [travis-ci]: https://travis-ci.org/genebean/puppet-moddeps
 [travis-img-master]: https://img.shields.io/travis/genebean/puppet-moddeps/master.svg
 [travis-img-develop]: https://img.shields.io/travis/genebean/puppet-moddeps/develop.svg
+[vbox]: https://www.virtualbox.org
+[vagrant]: https://www.vagrantup.com
