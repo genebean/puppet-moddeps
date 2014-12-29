@@ -1,5 +1,7 @@
 # Puppet::Moddeps
 
+[![Gem Version][gem-v-img]][gem-version]
+
 #### Master branch:
 [![Build Status][travis-img-master]][travis-ci]
 [![Code Climate][cc-img]][code-climate]
@@ -60,6 +62,8 @@ Code must have tests before it will be merged.
 [coveralls-develop]: https://coveralls.io/r/genebean/puppet-moddeps?branch=develop
 [coveralls-img-master]: https://img.shields.io/coveralls/genebean/puppet-moddeps/master.svg
 [coveralls-img-develop]: https://img.shields.io/coveralls/genebean/puppet-moddeps/develop.svg
+[gem-v-img]: https://badge.fury.io/rb/puppet-moddeps.svg
+[gem-version]: http://badge.fury.io/rb/puppet-moddeps
 [gemnasium-img]: https://img.shields.io/gemnasium/genebean/puppet-moddeps.svg
 [gemnasium]: https://gemnasium.com/genebean/puppet-moddeps
 [travis-ci]: https://travis-ci.org/genebean/puppet-moddeps
