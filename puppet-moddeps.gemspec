@@ -23,17 +23,17 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency 'bundler', '~> 1.7', '>= 1.7.9'
-  spec.add_development_dependency 'codeclimate-test-reporter', '~> 0.4', '>= 0.4.3'
-  spec.add_development_dependency 'coveralls', '~> 0.7', '>= 0.7.2'
-  spec.add_development_dependency 'guard', '~> 2.10', '>= 2.10.5'
-  spec.add_development_dependency 'guard-rspec', '~> 4.5', '>= 4.5.0'
-  spec.add_development_dependency 'pry', '~> 0.10', '>= 0.10.1'
-  spec.add_development_dependency 'pry-nav', '~> 0.2', '>= 0.2.4'
-  spec.add_development_dependency 'pry-remote', '~> 0.1', '>= 0.1.8'
+  spec.add_development_dependency 'bundler', '~> 1.7'
+  spec.add_development_dependency 'codeclimate-test-reporter', '~> 0.4'
+  spec.add_development_dependency 'coveralls', '~> 0.7'
+  spec.add_development_dependency 'guard', '~> 2.10'
+  spec.add_development_dependency 'guard-rspec', '~> 4.5'
+  spec.add_development_dependency 'pry', '~> 0.10'
+  spec.add_development_dependency 'pry-nav', '~> 0.2'
+  spec.add_development_dependency 'pry-remote', '~> 0.1'
   spec.add_development_dependency 'rake', '~> 10.4', '>= 10.4.2'
-  spec.add_development_dependency 'rspec', '~> 3.1', '>= 3.1.0'
-  spec.add_development_dependency 'rspec-nc', '~> 0.2', '>= 0.2.0'
+  spec.add_development_dependency 'rspec', '~> 3.1'
+  spec.add_development_dependency 'rspec-nc', '~> 0.2'
 
   spec.add_runtime_dependency 'json', '~> 1.8', '>= 1.8.1'
 end
