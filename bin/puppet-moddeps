@@ -2,5 +2,4 @@
 
 require 'puppet/moddeps'
 
-Puppet::Moddeps.installModuleDependencies(ARGV[0])
-
+Puppet::Moddeps.installDeps(ARGV)
