@@ -1,7 +1,6 @@
 require 'puppet/moddeps/version'
 require 'rubygems'
 require 'json'
-require 'thor'
 
 module Puppet
   module Moddeps
