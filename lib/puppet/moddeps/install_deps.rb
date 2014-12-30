@@ -71,6 +71,9 @@ module Puppet
 
       def install_modules
         if @deps.size > 0
+
+          puts "Modules will be installed into #{module_path}"
+
           @deps.each do |dep|
             if self.installed?(dep)
               puts "#{dep} is already installed, skipping."

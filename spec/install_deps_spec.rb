@@ -3,6 +3,7 @@ require 'spec_helper'
 describe Puppet::Moddeps::InstallDeps do
 
   before(:all) do
+    puts 'Downloading the puppetlabs-apache module...'
     %x(puppet module install puppetlabs-apache --ignore-dependencies)
     @expected_path = %x(puppet config print modulepath).split(':')[0]
   end
@@ -110,15 +111,16 @@ describe Puppet::Moddeps::InstallDeps do
 
        basedir = base_object.module_path
 
-       expect("#{basedir}/stdlib").to exist
-       expect("#{basedir}/concat").to exist
-       expect("#{basedir}/firewall").to exist
+       base_object.deps.each do |dep|
+         expect(File.directory?("#{basedir}/#{dep.split('-')[1]}")).to eql(true)
+       end
 
      end
 
   end
 
   after(:all) do
+    puts "Removing all modules from #{@expected_path}"
     %x(rm -rf #{@expected_path}/*)
   end
 
