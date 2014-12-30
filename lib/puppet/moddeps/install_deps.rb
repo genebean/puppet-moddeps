@@ -5,11 +5,27 @@ module Puppet
   module Moddeps
     class InstallDeps
 
-      attr_reader :default_module_path, :deps
+      attr_reader :module_path, :deps
 
-      def initialize(*puppet_module)
-        @default_module_path = '/etc/puppet/modules'
-        @deps = []
+      def initialize(path=nil, deps=nil)
+        if path and path.is_a?(String)
+          @module_path = path
+        elsif path
+          abort('The provided path was not a string.')
+        else
+          @module_path = %x(puppet config print modulepath).split(':')[0]
+        end
+
+        if deps and deps.is_a?(Array)
+          @deps = deps
+        elsif deps
+          abort('The provided dependency list was not an array.')
+        else
+          @deps = []
+        end
+      end
+
+      def install(*puppet_module)
 
         if puppet_module.size >=1 and puppet_module[0].is_a?(Array)
           args = puppet_module[0]
@@ -18,11 +34,11 @@ module Puppet
         end
 
         if args.size == 1
-          if check_if_installed(args[0])
+          if installed?(args[0])
             self.parse_metadata(args[0])
             self.install_modules
           else
-            puts "Can't find #{args[0]} in #{@default_module_path}"
+            puts "Can't find #{args[0]} in #{@module_path}"
           end
         else
           self.help
@@ -34,23 +50,32 @@ module Puppet
         puts '       Call puppet-moddeps with the name of one installed module'
       end
 
-      def check_if_installed(file)
-        File.directory?("#{@default_module_path}/#{file}")
+      def installed?(module_name)
+        File.directory?("#{@module_path}/#{module_name}")
       end
 
-      def parse_metadata(puppet_module)
-        metadata = File.read("#{@default_module_path}/#{puppet_module}/metadata.json")
+      def parse_metadata(module_name)
+        metadata = File.read("#{@module_path}/#{module_name}/metadata.json")
         data     = JSON.parse(metadata)
-        @deps    = self.get_deps(data)
+        self.parse_deps(data)
+      end
+
+      def parse_deps(data)
+        @deps.clear
+
+        data['dependencies'].each do |dep|
+          depname = dep["name"].sub '/', '-'
+          @deps.push( depname )
+        end
       end
 
       def install_modules
         if @deps.size > 0
           @deps.each do |dep|
-            if self.check_if_installed(dep)
+            if self.installed?(dep)
               puts "#{dep} is already installed, skipping."
             else
-              cmd = "/usr/bin/puppet module install #{dep}"
+              cmd = "puppet module install #{dep}"
               puts "Running \"#{cmd}\"..."
               %x(#{cmd})
             end
@@ -58,18 +83,6 @@ module Puppet
         else
           puts 'No dependencies were marked for installation.'
         end
-      end
-
-      private
-
-      def get_deps(data)
-        dependencies = []
-        data['dependencies'].each do |dep|
-          depname = dep["name"].sub '/', '-'
-          dependencies.push( depname )
-        end
-
-        return dependencies
       end
 
     end
