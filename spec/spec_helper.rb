@@ -3,9 +3,9 @@ require 'coveralls'
 require 'simplecov'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
-  CodeClimate::TestReporter::Formatter,
   Coveralls::SimpleCov::Formatter,
-  SimpleCov::Formatter::HTMLFormatter
+  SimpleCov::Formatter::HTMLFormatter,
+  CodeClimate::TestReporter::Formatter
 ]
 SimpleCov.start 'rails'
 
