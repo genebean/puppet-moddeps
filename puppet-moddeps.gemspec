@@ -37,5 +37,12 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 3.1'
   spec.add_development_dependency 'rspec-nc', '~> 0.2'
 
+  if ENV.key?('PUPPET_VERSION')
+    puppetversion = "= #{ENV['PUPPET_VERSION']}"
+  else
+    puppetversion = ['>= 3.0', '< 4.0']
+  end
+  spec.add_development_dependency 'puppet', puppetversion
+
   spec.add_runtime_dependency 'json', '~> 1.8', '>= 1.8.1'
 end

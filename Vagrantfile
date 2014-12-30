@@ -12,9 +12,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     dev.vm.synced_folder "./", "/home/vagrant/puppet-moddeps"
 
     dev.vm.provision "shell", inline: "yum -y install dos2unix git nano ruby-devel tree vim-enhanced"
-    dev.vm.provision "shell", inline: "dos2unix /vagrant/scripts/vagrant-user.sh"
-    dev.vm.provision "shell", inline: "su - vagrant -c '/vagrant/scripts/vagrant-user.sh'"
-    dev.vm.provision "shell", path:   "scripts/pretest.sh"
+    dev.vm.provision "shell", inline: "dos2unix /vagrant/scripts/*.sh"
+    dev.vm.provision "shell", inline: "su - vagrant -c 'export PUPPET_VERSION=3.7.3; /vagrant/scripts/vagrant-user.sh'"
+    #dev.vm.provision "shell", inline: "su - vagrant -c '/vagrant/scripts/pretest.sh'"
 
   end
 
