@@ -1,7 +1,7 @@
 /.bundle/
 /.vagrant/
 /.yardoc
-#/Gemfile.lock
+/Gemfile.lock
 /_yardoc/
 /coverage/
 /doc/
@@ -22,3 +22,4 @@ mkmf.log
 /vendor
 
 /.c9/
+/.idea/

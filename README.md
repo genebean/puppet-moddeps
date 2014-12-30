@@ -12,17 +12,16 @@
 [![Build Status][travis-img-develop]][travis-ci]
 [![Coverage Status][coveralls-img-develop]][coveralls-develop]
 
-## I work!
-
-**This gem DOES run successfully** using the system ruby on CentOS 6 (v1.8.7).
-The broken build status is a result of how [RVM][rvm] changes the environment
-and is something that is being investigated.
-
 ## Description
 
 This gem will allow you to pull in all missing dependencies for a given Puppet
 module. This is targeted specifically at private modules or modules cloned from
 GitHub that have a populated `metadata.json` file.
+
+puppet-moddeps has been extensively tested on CentOS 6 using the system ruby
+(v1.8.7). Due to dependency requirements all development is done on ruby 1.9.3
+or higher. Automated testing of v1.8.7 cannot be done on Travis-CI due to the
+development dependancies..
 
 ## Installation
 
