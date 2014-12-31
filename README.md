@@ -76,6 +76,11 @@ is installed system-wide in the referenced Vagrant box.
 Please try and write tests using Rspec's expect syntax for any code you add or change.
 Code must have tests before it will be merged.
 
+## License
+
+This code is released under the New BSD license (aka 3-clause BSD). A copy is
+in the LICENSE file in this repo.
+
 
 [code-climate]: https://codeclimate.com/github/genebean/puppet-moddeps
 [cc-img]: https://img.shields.io/codeclimate/github/genebean/puppet-moddeps.svg
