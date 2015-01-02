@@ -13,3 +13,4 @@ SimpleCov.start 'rails' # without 'rails' this doesn't work right.
 
 require 'pry'
 require 'puppet/moddeps'
+require 'rbconfig'
