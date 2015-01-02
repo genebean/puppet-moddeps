@@ -21,7 +21,7 @@ GitHub that have a populated `metadata.json` file.
 puppet-moddeps has been extensively tested on CentOS 6 using the system ruby
 (v1.8.7). Due to dependency requirements all development is done on ruby 1.9.3
 or higher. Automated testing of v1.8.7 cannot be done on Travis-CI due to the
-development dependancies..
+development dependencies.
 
 ## Installation
 
@@ -66,14 +66,20 @@ the version available in Red Hat / CentOS 6.
 
 Development and testing can also be done utilizing the included `Vagrantfile`.
 To do so, install [Vagrant][vagrant] and [VirtualBox][vbox], fork and clone the
-project, cd into the project, and run `vagrant up dev` followed by `vagrant ssh
-dev`.  The setup process will take care of running `bundle install` for you. You
-can find the code symlinked into the vagrant user's home directory.
+project, cd into the project, and run `vagrant up` followed by `vagrant ssh`.
+The setup process will take care of running `bundle install` for you. You
+can find the code symlinked into the vagrant user's home directory. Also, RVM
+is installed system-wide in the referenced Vagrant box.
 
 ### Tests
 
 Please try and write tests using Rspec's expect syntax for any code you add or change.
 Code must have tests before it will be merged.
+
+## License
+
+This code is released under the New BSD license (aka 3-clause BSD). A copy is
+in the LICENSE file in this repo.
 
 
 [code-climate]: https://codeclimate.com/github/genebean/puppet-moddeps

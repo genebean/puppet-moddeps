@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'json'
+require 'rbconfig'
 
 module Puppet
   module Moddeps
@@ -13,7 +14,8 @@ module Puppet
         elsif path
           abort('The provided path was not a string.')
         else
-          @module_path = %x(puppet config print modulepath).split(':')[0]
+          separator = self.path_separator(RbConfig::CONFIG['host_os'])
+          @module_path = %x(puppet config print modulepath).split(separator)[0]
         end
 
         if deps and deps.is_a?(Array)
@@ -52,6 +54,14 @@ module Puppet
 
       def installed?(module_name)
         File.directory?("#{@module_path}/#{module_name}")
+      end
+
+      def path_separator(os_string)
+        if (/cygwin|mswin|mingw|bccwin|wince|emx/ =~ os_string) != nil
+          separator = ';'
+        else
+          separator = ':'
+        end
       end
 
       def parse_metadata(module_name)

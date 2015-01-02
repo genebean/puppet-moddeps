@@ -4,8 +4,18 @@ describe Puppet::Moddeps::InstallDeps do
 
   before(:all) do
     puts 'Downloading the puppetlabs-apache module...'
+
     %x(puppet module install puppetlabs-apache --ignore-dependencies)
-    @expected_path = %x(puppet config print modulepath).split(':')[0]
+
+    @dirs_to_clean = ['apache']
+
+    if (/cygwin|mswin|mingw|bccwin|wince|emx/ =~ RbConfig::CONFIG['host_os']) != nil
+      @expected_path = %x(puppet config print modulepath).split(';')[0]
+    else
+      @expected_path = %x(puppet config print modulepath).split(':')[0]
+    end
+
+    puts "The expected module path is: #{@expected_path}"
   end
 
   describe '.initialize(path, deps)' do
@@ -70,6 +80,23 @@ describe Puppet::Moddeps::InstallDeps do
 
   end
 
+  describe '.path_separator' do
+
+    subject { Puppet::Moddeps::InstallDeps.new }
+
+    context 'on Windows' do
+      it 'should return ; as the path separator' do
+        expect(subject.path_separator('mingw32')).to eq(';')
+      end
+    end
+
+    context 'on Linux' do
+      it 'should return : as the path separator' do
+        expect(subject.path_separator('linux-gnu')).to eq(':')
+      end
+    end
+  end
+
   describe '.parse_metadata' do
 
     it "should parse metadata.json" do
@@ -112,7 +139,11 @@ describe Puppet::Moddeps::InstallDeps do
        basedir = base_object.module_path
 
        base_object.deps.each do |dep|
-         expect(File.directory?("#{basedir}/#{dep.split('-')[1]}")).to eql(true)
+         mod_dir = dep.split('-')[1]
+         @dirs_to_clean.push(mod_dir)
+
+         mod_path = "#{basedir}/#{mod_dir}"
+         expect(File.directory?(mod_path)).to eql(true)
        end
 
      end
@@ -120,8 +151,19 @@ describe Puppet::Moddeps::InstallDeps do
   end
 
   after(:all) do
-    puts "Removing all modules from #{@expected_path}"
-    %x(rm -rf #{@expected_path}/*)
+
+    @dirs_to_clean.each do |mod_dir|
+      path_to_clean = @expected_path + "/#{mod_dir}"
+
+      if (/cygwin|mswin|mingw|bccwin|wince|emx/ =~ RbConfig::CONFIG['host_os']) != nil
+        puts "Removing #{path_to_clean.gsub '/', '\\'}"
+        %x(rmdir /Q /S #{path_to_clean.gsub '/', '\\'})
+      else
+        puts "Removing #{path_to_clean}"
+        %x(rm -rf #{path_to_clean})
+      end
+
+    end
   end
 
 end
