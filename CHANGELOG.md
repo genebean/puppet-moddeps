@@ -9,6 +9,14 @@
   testing
 * improved testablilty and fixed it so that all test pass
 
+## v1.2.0
+
+* created this changelog
+* simplified vagrant setup
+* updated documentation
+* fixed bug preventing reporting test results to multiple places
+* adjusted testing code for Windows - builds should work just as on Linux
+
 
 
 [gem-v-img]: https://badge.fury.io/rb/puppet-moddeps.svg
