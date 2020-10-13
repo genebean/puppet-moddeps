@@ -45,5 +45,5 @@ Gem::Specification.new do |spec|
   end
   spec.add_development_dependency 'puppet', puppetversion
 
-  spec.add_runtime_dependency 'json', '~> 1.8', '>= 1.8.1'
+  spec.add_runtime_dependency 'json', '>= 1.8.1', '< 3.0'
 end
