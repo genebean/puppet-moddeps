@@ -33,7 +33,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'pry', '~> 0.10'
   spec.add_development_dependency 'pry-nav', '~> 0.2'
   spec.add_development_dependency 'pry-remote', '~> 0.1'
-  spec.add_development_dependency 'rake', '~> 10.4'
+  spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rspec', '~> 3.1'
   spec.add_development_dependency 'rspec-nc', '~> 0.2'
   spec.add_development_dependency 'wdm', '>= 0.1.0' if Gem.win_platform?
