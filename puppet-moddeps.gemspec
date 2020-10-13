@@ -26,7 +26,7 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 1.8.7'
 
   spec.add_development_dependency 'bundler', '~> 1.7'
-  spec.add_development_dependency 'codeclimate-test-reporter', '~> 0.4'
+  spec.add_development_dependency 'codeclimate-test-reporter', '~> 1.0'
   spec.add_development_dependency 'coveralls', '~> 0.7'
   spec.add_development_dependency 'guard', '~> 2.10'
   spec.add_development_dependency 'guard-rspec', '~> 4.5'
