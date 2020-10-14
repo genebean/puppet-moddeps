@@ -1,16 +1,8 @@
 # Puppet::Moddeps
 
 [![Gem Version][gem-v-img]][gem-version]
-
-#### Master branch:
 [![Build Status][travis-img-master]][travis-ci]
-[![Code Climate][cc-img]][code-climate]
 [![Coverage Status][coveralls-img-master]][coveralls-master]
-[![Dependency Status][gemnasium-img]][gemnasium]
-
-#### Devlop branch:
-[![Build Status][travis-img-develop]][travis-ci]
-[![Coverage Status][coveralls-img-develop]][coveralls-develop]
 
 ## Description
 
@@ -78,20 +70,15 @@ Code must have tests before it will be merged.
 
 ## License
 
-This code is released under the New BSD license (aka 3-clause BSD). A copy is
-in the LICENSE file in this repo.
+This code is released under the Apache 2.0 license. A copy is in the LICENSE file in this repo.
 
 
-[code-climate]: https://codeclimate.com/github/genebean/puppet-moddeps
-[cc-img]: https://img.shields.io/codeclimate/github/genebean/puppet-moddeps.svg
 [coveralls-master]: https://coveralls.io/r/genebean/puppet-moddeps?branch=master
 [coveralls-develop]: https://coveralls.io/r/genebean/puppet-moddeps?branch=develop
 [coveralls-img-master]: https://img.shields.io/coveralls/genebean/puppet-moddeps/master.svg
 [coveralls-img-develop]: https://img.shields.io/coveralls/genebean/puppet-moddeps/develop.svg
 [gem-v-img]: https://badge.fury.io/rb/puppet-moddeps.svg
 [gem-version]: http://badge.fury.io/rb/puppet-moddeps
-[gemnasium-img]: https://img.shields.io/gemnasium/genebean/puppet-moddeps.svg
-[gemnasium]: https://gemnasium.com/genebean/puppet-moddeps
 [rvm]: http://rvm.io
 [travis-ci]: https://travis-ci.org/genebean/puppet-moddeps
 [travis-img-master]: https://img.shields.io/travis/genebean/puppet-moddeps/master.svg

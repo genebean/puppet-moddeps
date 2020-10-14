@@ -2,6 +2,10 @@
 
 [![GitHub tag][tag-img]][tag] [![Gem Version][gem-v-img]][gem-version]
 
+## v2.0.0
+
+* Rewrote to be more intelligent by using puppetfile-resolver
+
 ## v1.1.0
 
 * converted to a class-based code structure

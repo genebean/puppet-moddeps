@@ -2,5 +2,5 @@
 
 require 'puppet/moddeps'
 
-depinstaller = Puppet::Moddeps::InstallDeps.new
+depinstaller = Puppet::Moddeps::Installer.new
 depinstaller.install(ARGV)

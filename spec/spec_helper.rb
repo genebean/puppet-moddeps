@@ -1,16 +1,13 @@
-require 'codeclimate-test-reporter'
-require 'coveralls'
 require 'simplecov'
+require 'codecov'
 
-# The order of these is very important for making them all work together.
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
-  Coveralls::SimpleCov::Formatter,
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::HTMLFormatter,
-  CodeClimate::TestReporter::Formatter # this has to be last or reporting fails.
-]
-SimpleCov.start 'rails' # without 'rails' this doesn't work right.
-
+  SimpleCov::Formatter::Codecov
+])
+SimpleCov.start
 
 require 'pry'
 require 'puppet/moddeps'
 require 'rbconfig'
+require 'semantic_puppet'
