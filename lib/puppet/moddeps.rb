@@ -1,4 +1,4 @@
-require 'puppet/moddeps/install_deps'
+require 'puppet/moddeps/installer'
 require 'puppet/moddeps/version'
 
 module Puppet

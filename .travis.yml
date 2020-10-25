@@ -1,12 +1,8 @@
 language: ruby
 cache: bundler
 rvm:
-  - 1.9.3
-  - 2.0.0
-  - 2.1.1
-
-env:
- - PUPPET_VERSION=3.7.3
+  - 2.5.7
+  - 2.6.5
 
 script: 'bundle exec rake'
 
@@ -14,7 +10,3 @@ notifications:
   email:
     on_failure: change
     on_success: never
-
-addons:
-  code_climate:
-    repo_token: f73a867bdb9f7839256dbf50604585592eecf50f5fb0ea09c0783eb27649e6f2
