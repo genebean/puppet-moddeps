@@ -1,8 +1,8 @@
 # Puppet::Moddeps
 
 [![Gem Version][gem-v-img]][gem-version]
-[![Build Status][travis-img-master]][travis-ci]
-[![Coverage Status][coveralls-img-master]][coveralls-master]
+[![Actions Status](https://github.com/genebean/puppet-moddeps/workflows/Rspec%20Tests/badge.svg)](https://github.com/genebean/puppet-moddeps/actions)
+[![codecov](https://codecov.io/gh/genebean/puppet-moddeps/branch/master/graph/badge.svg?token=9sn4KbY0yu)](https://app.codecov.io/gh/genebean/puppet-moddeps)
 
 ## Description
 
