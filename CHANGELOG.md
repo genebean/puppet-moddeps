@@ -5,6 +5,7 @@
 ## v2.0.0
 
 * Rewrote to be more intelligent by using puppetfile-resolver
+* Moved testing to GitHub Actions
 
 ## v1.1.0
 

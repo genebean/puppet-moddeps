@@ -90,6 +90,8 @@ module Puppet
         module_objects = resolve_local_module_deps(module_array)
         
         # Remove the local modules from the list of modules to install
+        # so that the installation process does not overwrite whatever
+        # initiated running puppet-moddeps.
         module_objects.each do |obj|
           if module_array.include?(obj.name)
             module_objects.delete(obj)
