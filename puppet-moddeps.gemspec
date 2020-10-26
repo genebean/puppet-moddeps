@@ -28,6 +28,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'codecov', '~> 0.2.12'
   spec.add_development_dependency 'guard', '~> 2.16', '>= 2.16.2'
   spec.add_development_dependency 'guard-rspec', '~> 4.7', '>= 4.7.3'
+  spec.add_development_dependency 'guard-yard', '~> 2.2', '>= 2.2.1'
   spec.add_development_dependency 'pry', '~> 0.13.1'
   spec.add_development_dependency 'pry-byebug', '~> 3.9'
   spec.add_development_dependency 'pry-remote', '~> 0.1.8'
