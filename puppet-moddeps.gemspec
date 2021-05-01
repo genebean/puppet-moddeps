@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 2.5.7'
 
   spec.add_development_dependency 'bundler', '~> 2.1', '>= 2.1.4'
-  spec.add_development_dependency 'codecov', '~> 0.2.12'
+  spec.add_development_dependency 'codecov', '~> 0.5.2'
   spec.add_development_dependency 'guard', '~> 2.16', '>= 2.16.2'
   spec.add_development_dependency 'guard-rspec', '~> 4.7', '>= 4.7.3'
   spec.add_development_dependency 'guard-yard', '~> 2.2', '>= 2.2.1'
